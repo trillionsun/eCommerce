@@ -41,10 +41,10 @@ function mapDispatchToProps(dispatch)
 {
     return {
         addToCart: (item)=> {
-            dispatch({type: 'ADD', payload:item})
+            dispatch({type: 'ADDED', payload:item})
         },
         removeFromCart: (item) => {
-            dispatch({type: 'REMOVE', payload:item})
+            dispatch({type: 'REMOVED', payload:item})
         }
     }
 }

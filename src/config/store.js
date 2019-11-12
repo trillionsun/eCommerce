@@ -1,5 +1,6 @@
 import {createStore, combineReducers} from 'redux'
 import cartReducer from '../features/cart/reducer'
+import {reducer as formReducer} from 'redux-form'
 
 
 
