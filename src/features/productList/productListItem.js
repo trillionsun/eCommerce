@@ -1,8 +1,7 @@
 import React from 'react';
-
 import AddBtn from './add-btn.js'
 import RemoveBtn from './remove-btn.js'
-import {Field, reduxForm} from 'redux-form'
+
 
 class ProductListItem extends React.Component
 {
@@ -80,8 +79,6 @@ class ProductListItem extends React.Component
                                 addToCart = {addToCart}
                                 quantity = {parseInt(this.state.quantity,10)}
                             />
-
-
                             {
                                 this.props.cartItem && this.props.cartItem.quantity >0
                                     ?  <RemoveBtn

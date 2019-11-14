@@ -7,25 +7,28 @@ const addToCart = (cart, item)=>{
             ? [...cartWithoutItem(cart, item), {...item, quantity: item.quantity}]
             : [...cartWithoutItem(cart, item), {...cartItem, quantity: cartItem.quantity + item.quantity}]
 
-}
+};
 
 const removeFromCart = (cart, item)=> {
     return [ ...cartWithoutItem(cart,item)]
-}
+};
 
 const removeAllFromCart = (cart, item)=> {
     return [ ...cartWithoutItem(cart,item)]
-}
+};
 
 // describe how they change
 const cartReducer = (state = [], action)=>{
     switch(action.type){
         case 'ADDED':
             return addToCart(state, action.payload);
+            break;
         case 'REMOVED':
             return removeFromCart(state, action.payload);
+            break;
         case 'REMOVEALL':
             return removeAllFromCart(state, action.payload);
+            break;
         default:
             return state;
     }

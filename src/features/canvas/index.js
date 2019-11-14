@@ -7,7 +7,7 @@ function Canvas() {
             <div class = "col">
             </div>
 
-                <div id="carouselExampleCaptions" className="carousel slide col-10" data-ride="carousel">
+                <div id="carouselExampleCaptions" className="carousel slide col-10 col-lg-6" data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -15,21 +15,21 @@ function Canvas() {
                     </ol>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/banana.jpg" className="d-block w-100" alt="..."/>
+                            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/banana.jpg" className="d-block w-100 h-10" alt="..."/>
                                 <div className="carousel-caption d-none d-md-block">
                                     <h5>First slide label</h5>
                                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                                 </div>
                         </div>
                         <div className="carousel-item">
-                            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/broccoli.jpg" className="d-block w-100" alt="..." />
+                            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/broccoli.jpg" className="d-block w-100 h-10" alt="..." />
                                 <div className="carousel-caption d-none d-md-block">
                                     <h5>Second slide label</h5>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 </div>
                         </div>
                         <div className="carousel-item">
-                            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/almonds.jpg" className="d-block w-100" alt="..." />
+                            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/almonds.jpg" className="d-block w-100 h-10" alt="..." />
                                 <div className="carousel-caption d-none d-md-block">
                                     <h5>Third slide label</h5>
                                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>

@@ -11,7 +11,7 @@ class ProductList extends React.Component
 {
     render(){
         const {addToCart, removeFromCart,products, cart} = this.props
-        return <div class="container">
+        return <div className="container">
             <div class = "row">
             {
                 products.map(product =>
