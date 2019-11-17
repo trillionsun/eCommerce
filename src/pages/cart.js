@@ -1,8 +1,10 @@
 import React from 'react'
 import {connect} from "react-redux";
+import CartItem from "../features/productList/cartItem";
 
 
-class CartItem extends React.Component{
+
+class Cart extends React.Component{
     constructor(props)
 {
     super(props)
@@ -18,7 +20,7 @@ class CartItem extends React.Component{
     }
 
 render() {
-    const {cart, removeFromCart} = this.props
+    const {cart, removeFromCart, setCartItem} = this.props
     return (
         <table id="cart-table">
             <tr>
@@ -28,13 +30,12 @@ render() {
                 <th> </th>
             </tr>
             {
-        cart.map(cartItem =>
-            <tr>
-                <td><img src={cartItem.image} className="cart-image"/></td>
-                <td>{cartItem.quantity}</td>
-                <td>{cartItem.price * cartItem.quantity }</td>
-                <td><button type="button" className="close" onClick={()=> removeFromCart(cartItem)}>x</button></td>
-            </tr>
+        cart.map(cartItem => <CartItem
+            Item={cartItem}
+            setCartItem={setCartItem}
+            removeFromCart = {removeFromCart}
+            />
+
         )
             }
             <tr>
@@ -48,18 +49,5 @@ render() {
     }
 }
 
-function mapStateToProps(state){
-    return{
-        cart: state.cart
-    }
-}
-function mapDispatchToProps(dispatch)
-{
-    return {
-        removeFromCart: (item) => {
-            dispatch({type: 'REMOVED', payload:item})
-        }
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItem)
+export default Cart

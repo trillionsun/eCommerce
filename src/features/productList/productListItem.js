@@ -1,6 +1,6 @@
 import React from 'react';
 import AddBtn from './add-btn.js'
-import RemoveBtn from './remove-btn.js'
+
 
 
 class ProductListItem extends React.Component
@@ -37,7 +37,7 @@ class ProductListItem extends React.Component
     }
 
     render() {
-        const {product, addToCart, removeFromCart} = this.props
+        const {product, addToCart} = this.props
         return <div class="col-lg-4 col-md-3">
             <div class="card h-60">
                 <a href="#"><img class="card-img-top"  src = {product.image} alt=""/></a>
@@ -47,16 +47,7 @@ class ProductListItem extends React.Component
                     <p class="card-text">{product.category}</p>
                     <form>
                         <div class="form-group">
-                            <label>Quality Selection </label>
-                            <select name="quality" class="form-control input-sm" value={this.state.quality}
-                            onChange={this.handleQualityChange}>
-                                <option>Normal</option>
-                                <option>Good</option>
-                                <option>Superior</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Size Selection</label><br />
+                            <label>Size</label><br />
                             <label class="radio-inline">
                                 <input type="radio" name="size" value="small" onClick={this.handleSizeChange}/> Small
                             </label>
@@ -67,27 +58,23 @@ class ProductListItem extends React.Component
                                 <input type="radio" name="size" value="large" onClick={this.handleSizeChange}/>Large
                             </label>
                         </div>
-                        <div>
-                            <label>Quantity Selection </label> Number: <br />
-                            <input type="number" name="Quantity" value={this.state.quantity} onChange={this.handleQuantityChange} />
-                        </div>
+                        <div class="input-group">
+                            <label>Quantity </label><br />
+                            <label class="input-group" >
+                            <input type="number" min="0" name="Quantity" class="col-xl-6 col-lg-5 col-md-5 col-sm-6 col-2" value={this.state.quantity} onChange={this.handleQuantityChange} />
+                            </label>
+                            </div>
 
-                        <div className="btn-group" role="group" aria-label="Basic example">
+                        <div>
+                            <p>
                             <AddBtn
                                 cartItem = {this.props.cartItem}
                                 product = {product}
                                 addToCart = {addToCart}
                                 quantity = {parseInt(this.state.quantity,10)}
                             />
-                            {
-                                this.props.cartItem && this.props.cartItem.quantity >0
-                                    ?  <RemoveBtn
-                                        cartItem={this.props.cartItem}
-                                        product={product}
-                                        removeFromCart={removeFromCart}
-                                    />
-                                    : null
-                            }
+
+                            </p>
                         </div>
                     </form>
                 </div>
