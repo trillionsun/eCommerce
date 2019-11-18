@@ -22,20 +22,21 @@ class CartItem extends React.Component{
         this.props.setCartItem({...this.props.Item, quantity: quantity});
     }
     render() {
-
         const{ Item, removeFromCart}= this.props
         return (
                         <tr>
-                            <td><img src={Item.image} className="cart-image"/></td>
-                            <td><input value={this.state.quantity} onChange={this.handleQuantityChange
+                            <td class="w-10"><img src={Item.image} className="img-fluid, img-thumbnail"/></td>
+                            <td>{Item.name} </td>
+                            <td>{Item.price} </td>
+                            <td class="qty"><input value={Item.quantity} onChange={this.handleQuantityChange
                             } min='0' type='number'/></td>
                             <td>{Item.price * Item.quantity }</td>
-                            <td><button type="button" className="close" onClick={
+                            <td><a href="#" class="btn btn-danger btn-sm" onClick={
                                 function(e) {
                                         e.preventDefault();
                                         removeFromCart(Item);
                                     }
-                            }>x</button></td>
+                            }>X</a></td>
                         </tr>
         )
     }

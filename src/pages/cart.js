@@ -1,5 +1,4 @@
 import React from 'react'
-import {connect} from "react-redux";
 import CartItem from "../features/productList/cartItem";
 
 
@@ -8,7 +7,7 @@ class Cart extends React.Component{
     constructor(props)
 {
     super(props)
-    this.handleSubmit.bind(this)
+    this.handleSubmit=this.handleSubmit.bind(this)
     this.state={
         showCart: false
     }
@@ -19,18 +18,24 @@ class Cart extends React.Component{
 
     }
 
+
 render() {
     const {cart, removeFromCart, setCartItem} = this.props
     return (
-        <table id="cart-table">
-            <tr>
-                <th> Image </th>
-                <th> Quantity </th>
-                <th> Price </th>
-                <th> </th>
-            </tr>
+                        <table class="table table-image">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
             {
-        cart.map(cartItem => <CartItem
+      cart.map(cartItem => <CartItem
             Item={cartItem}
             setCartItem={setCartItem}
             removeFromCart = {removeFromCart}
@@ -38,13 +43,10 @@ render() {
 
         )
             }
-            <tr>
-                <td> Total price:  </td>
-                <td>  </td>
-                <td>{cart.reduce((total,item)=>{return total+item.quantity*item.price },0)} </td>
-            </tr>
+                            </tbody>
+                        </table>
 
-        </table>
+
 )
     }
 }

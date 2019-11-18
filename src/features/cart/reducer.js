@@ -6,7 +6,7 @@ const addToCart = (cart, item)=>{
         const cartItem = itemInCart(cart, item)
         return cartItem === undefined
             ? [...cartWithoutItem(cart, item), {...item, quantity: item.quantity}]
-            : [...cartWithoutItem(cart, item), {...cartItem, quantity: cartItem.quantity + item.quantity}]
+            : [...cartWithoutItem(cart, item), {...cartItem, quantity: parseInt(cartItem.quantity,10) + parseInt(item.quantity,10)}]
 };
 
 const removeFromCart = (cart, item)=> {
@@ -17,9 +17,10 @@ const removeAllFromCart = (cart, item)=> {
     return [ ...cartWithoutItem(cart,item)]
 };
 
-const setCartItem = (cart, item)=> {
-    return [{...item, quantity: item.quantity}]
-};
+const setCartItem = (cart, item)=> [...cartWithoutItem(cart, item), {
+    ...item,
+    quantity: item.quantity
+}].sort((a, b) => a.id - b.id);
 
 // describe how they change
 const cartReducer = (state = [], action)=>{

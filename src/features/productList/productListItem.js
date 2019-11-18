@@ -38,7 +38,7 @@ class ProductListItem extends React.Component
 
     render() {
         const {product, addToCart} = this.props
-        return <div class="col-lg-4 col-md-3">
+        return <div class="col-lg-4 col-md-5">
             <div class="card h-60">
                 <a href="#"><img class="card-img-top"  src = {product.image} alt=""/></a>
                 <div class="card-body">
@@ -61,7 +61,7 @@ class ProductListItem extends React.Component
                         <div class="input-group">
                             <label>Quantity </label><br />
                             <label class="input-group" >
-                            <input type="number" min="0" name="Quantity" class="col-xl-6 col-lg-5 col-md-5 col-sm-6 col-2" value={this.state.quantity} onChange={this.handleQuantityChange} />
+                            <input type="number" min="0" name="Quantity" class="col-xl-6 col-lg-5 col-md-5 col-sm-2 col-2" value={this.state.quantity} onChange={this.handleQuantityChange} />
                             </label>
                             </div>
 

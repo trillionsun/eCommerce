@@ -6,7 +6,7 @@ export default function AddButton(props)
 {
         const pro ={...props.product, quantity: props.quantity}
 
-        return <button class="btn btn-primary" onClick={function(e){
+        return <button class="btn btn-success" onClick={function(e){
                 e.preventDefault();
                 if(props.quantity>0)
                 {
