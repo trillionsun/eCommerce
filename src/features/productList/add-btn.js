@@ -12,8 +12,8 @@ export default function AddButton(props)
                 {
                         props.addToCart(pro)
                 }
-        }}> Add to cart({
-            (props.cartItem && props.cartItem.quantity) || 0
-        }) </button>
+        }}> Add to cart <span class="badge badge-success">{
+                (props.cartItem && props.cartItem.quantity) || 0
+        }</span></button>
 
 }

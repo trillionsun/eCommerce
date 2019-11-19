@@ -35,7 +35,7 @@ render() {
                             </thead>
                             <tbody>
             {
-      cart.map(cartItem => <CartItem
+      cart.sort((a,b)=> a.id-b.id).map(cartItem => <CartItem
             Item={cartItem}
             setCartItem={setCartItem}
             removeFromCart = {removeFromCart}

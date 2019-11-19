@@ -20,7 +20,7 @@ const removeAllFromCart = (cart, item)=> {
 const setCartItem = (cart, item)=> [...cartWithoutItem(cart, item), {
     ...item,
     quantity: item.quantity
-}].sort((a, b) => a.id - b.id);
+}];
 
 // describe how they change
 const cartReducer = (state = [], action)=>{

@@ -21,7 +21,7 @@ class Header extends React.Component{
 
     render(){
         return <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+        <nav className="navbar navbar-expand-sm navbar-light bg-secondary fixed-top">
             <div className="container">
                 <a className="navbar-brand" href="#">Angela's Little Shop</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -42,7 +42,7 @@ class Header extends React.Component{
                             <NavLink className="nav-link" to = '/contact'>Contact </NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" to ='/#' data-toggle="modal" data-target="#cartModal" >Cart({this.props.cart.length}) </NavLink>
+                            <NavLink className="nav-link" to ='/#' data-toggle="modal" data-target="#cartModal" >Cart <span class="badge badge-light position-relative"> {this.props.cart.length} </span></NavLink>
                     </li>
                     </ul>
                 </div>

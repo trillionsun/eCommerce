@@ -17,22 +17,19 @@ function Canvas() {
                         <div className="carousel-item active">
                             <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/banana.jpg" className="d-block w-100 h-10" alt="..."/>
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    <h5 class="text-success">We have fruit!</h5>
                                 </div>
                         </div>
                         <div className="carousel-item">
                             <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/broccoli.jpg" className="d-block w-100 h-10" alt="..." />
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h5>Second slide label</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <h5 class="text-success">We also have veges!</h5>
                                 </div>
                         </div>
                         <div className="carousel-item">
                             <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/almonds.jpg" className="d-block w-100 h-10" alt="..." />
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h5>Third slide label</h5>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                    <h5 class="text-success">What? We also got nuts?</h5>
                                 </div>
                         </div>
                     </div>
