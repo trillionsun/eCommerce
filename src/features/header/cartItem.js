@@ -5,20 +5,12 @@ class CartItem extends React.Component{
     constructor(props)
     {
         super(props)
-        this.state={
-       quantity: this.props.Item.quantity
-        }
         this.handleQuantityChange=this.handleQuantityChange.bind(this)
 
     }
     handleQuantityChange(event)
     {
         let quantity = event.target.value;
-        this.setState(
-            {
-                quantity:quantity
-            }
-        )
         this.props.setCartItem({...this.props.Item, quantity: quantity});
     }
     render() {

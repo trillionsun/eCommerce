@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { NavLink, withRouter} from 'react-router-dom';
 
 import  ProductListItem from "./productListItem"
 
@@ -19,12 +18,9 @@ class ProductList extends React.Component
                         product={product}
                         addToCart={addToCart}
                         cartItem={cart.filter(cartItem => cartItem.id === product.id)[0]}
-                        removeFromCart={removeFromCart}
                     />
                     )
-
             }
-
             </div>
         </div>
 
@@ -42,9 +38,6 @@ function mapDispatchToProps(dispatch)
     return {
         addToCart: (item)=> {
             dispatch({type: 'ADDED', payload:item})
-        },
-        removeFromCart: (item) => {
-            dispatch({type: 'REMOVED', payload:item})
         }
     }
 }

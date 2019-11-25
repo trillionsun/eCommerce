@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import { NavLink, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux'
 import HomePage from './pages/home'
 

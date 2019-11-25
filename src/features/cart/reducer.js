@@ -13,8 +13,8 @@ const removeFromCart = (cart, item)=> {
     return [ ...cartWithoutItem(cart,item)]
 };
 
-const removeAllFromCart = (cart, item)=> {
-    return [ ...cartWithoutItem(cart,item)]
+const removeAllFromCart = ()=> {
+    return []
 };
 
 const setCartItem = (cart, item)=> [...cartWithoutItem(cart, item), {
@@ -34,7 +34,7 @@ const cartReducer = (state = [], action)=>{
         case 'SETTED':
             return setCartItem(state, action.payload);
         case 'REMOVEALL':
-            return removeAllFromCart(state, action.payload);
+            return removeAllFromCart();
 
         default:
             return state;

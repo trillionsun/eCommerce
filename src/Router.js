@@ -1,7 +1,7 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import HomePage from './pages/home'
-import CartPage from './pages/cart'
+import CartPage from './features/header/cart'
 import CheckOutPage from './pages/checkOut'
 import ContactPage from './pages/contact'
 import LogInPage from './pages/login'
@@ -15,5 +15,4 @@ const Router = ()=>(
         <Route  path = '/login' component={LogInPage}/>
     </Switch>
 )
-
 export default Router;

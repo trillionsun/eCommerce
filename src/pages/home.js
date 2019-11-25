@@ -5,7 +5,7 @@ import ProductList from '../features/productList/index'
 import Footer from '../features/footer/index'
 import data from '../data/products'
 
-function HomePage(props)
+function HomePage()
 {
 return <div>
         <Header/>
