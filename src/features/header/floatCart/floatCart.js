@@ -11,7 +11,7 @@ class Floatcart extends React.Component {
 
 
     render() { return <div>
-            <div className="modal fade" id="cartModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div className="modal fade" id="cartModal" tabIndex="-1" role="dialog" aria-labelledby="floatCartModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div className="modal-content">

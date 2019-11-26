@@ -1,24 +1,14 @@
 import React, {Fragment} from 'react';
 import {connect} from 'react-redux'
-import HomePage from './pages/home'
+import Routers from './Router'
+import {withRouter} from "react-router";
 
-
-
-
-
-
-function mapStateToProps(state)
-{
-    return {
-        cart: state.cart
-    }
-}
 
 
 function App() {
     return <div>
-        <HomePage/>
+      <Routers/>
     </div>
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect()(App));

@@ -1,9 +1,12 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
 
 
-import Floatcart from './floatCart'
+import Floatcart from './floatCart/floatCart'
+import Login from "./login";
+import SignUp from "./signup"
+
 
 
 class Header extends React.Component {
@@ -22,7 +25,7 @@ class Header extends React.Component {
     render() {
         return <React.Fragment>
             <div>
-            <nav className="navbar navbar-expand-sm navbar-light bg-secondary ">
+            <nav className="navbar navbar-expand-sm navbar-light bg-info ">
                 <div className="container">
                     <a className="navbar-brand" href="#">Angela's Little Shop</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
@@ -39,12 +42,13 @@ class Header extends React.Component {
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/about'>About </NavLink>
+
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='/signUp'>SignUp </NavLink>
+                                <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#signUpModal">SignUp </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='/login'>Login</NavLink>
+                                <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal">Login</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/#' data-toggle="modal"
@@ -57,6 +61,8 @@ class Header extends React.Component {
             </nav>
             </div>
             <Floatcart/>
+            <Login/>
+            <SignUp/>
         </React.Fragment>
     }
 
