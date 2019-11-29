@@ -40,7 +40,7 @@ class ProductListItem extends React.Component
         const {product, addToCart} = this.props
         return <div class="col-lg-4 col-md-5">
             <div class="card h-60">
-                <a href="#"><img class="card-img-top img-thumbnail "  src = {product.image} alt=""/></a>
+                <a><img class="card-img-top img-thumbnail "  src = {product.image} alt=""/></a>
                 <div class="card-body">
                     <a href="#">{product.name}</a>
                     <h5>{product.price}$</h5>
@@ -72,8 +72,6 @@ class ProductListItem extends React.Component
                                 addToCart = {addToCart}
                                 quantity = {parseInt(this.state.quantity,10)}
                             />
-
-
                             </p>
                         </div>
                     </form>

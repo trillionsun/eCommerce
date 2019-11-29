@@ -9,7 +9,7 @@ import  ProductListItem from "./productListItem"
 class ProductList extends React.Component
 {
     render(){
-        const {addToCart, removeFromCart,products, cart} = this.props
+        const {addToCart,products, cart} = this.props
         return <div className="container">
             <div class = "row">
             {

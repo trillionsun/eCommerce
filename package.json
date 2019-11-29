@@ -4,18 +4,19 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "expect": "latest",
     "jest": "^24.9.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-icons": "^3.8.0",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
-    "redux-form": "^8.2.6",
-    "expect": "latest"
+    "redux-form": "^8.2.6"
   },
   "scripts": {
     "start": "react-scripts start",

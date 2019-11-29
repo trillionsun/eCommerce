@@ -17,7 +17,7 @@ class CartItem extends React.Component{
         const{ Item, removeFromCart}= this.props
         return (
                         <tr>
-                            <td class="w-10"><img src={Item.image} className="img-fluid, img-thumbnail"/></td>
+                            <td class="w-10"><img src={Item.image} className="img-fluid, img-thumbnail" alt='product'/></td>
                             <td>{Item.name} </td>
                             <td>{Item.price} </td>
                             <td class="qty"><input value={Item.quantity} onChange={this.handleQuantityChange

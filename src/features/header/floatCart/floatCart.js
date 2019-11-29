@@ -4,12 +4,6 @@ import React from "react";
 import {connect} from "react-redux";
 
 class Floatcart extends React.Component {
-    constructor(props)
-    {
-        super(props)
-    }
-
-
     render() { return <div>
             <div className="modal fade" id="cartModal" tabIndex="-1" role="dialog" aria-labelledby="floatCartModalLabel"
                  aria-hidden="true">

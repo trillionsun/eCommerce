@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink, Redirect} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {connect} from "react-redux";
 
 
@@ -25,7 +25,7 @@ class Header extends React.Component {
     render() {
         return <React.Fragment>
             <div>
-            <nav className="navbar navbar-expand-sm navbar-light bg-info ">
+            <nav className="navbar navbar-expand-sm navbar-light bg-light ">
                 <div className="container">
                     <a className="navbar-brand" href="#">Angela's Little Shop</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
