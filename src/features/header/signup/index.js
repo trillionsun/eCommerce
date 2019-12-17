@@ -1,4 +1,12 @@
 import React from "react";
+import {userService} from "../../../auth/user/userServices";
+
+
+import {connect} from 'react-redux'
+import store from "../../../config/store"
+
+
+
 
 
 class SignUp extends React.Component {
@@ -6,10 +14,27 @@ class SignUp extends React.Component {
     {
         super(props)
         this.handleClick=this.handleClick.bind(this)
+        this.onChange =  this.onChange.bind(this)
+        this.state=
+            {
+                username: "",
+                password: "",
+                email: ""
+            }
     }
- handleClick(event)
+    onChange(e)
+    {
+        this.setState({[e.target.id]: e.target.value})
+
+    } handleClick(event)
     {
         event.preventDefault();
+        const newUser={
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email
+        }
+       store.dispatch( userService.signup(newUser));
 
     }
 
@@ -23,9 +48,9 @@ class SignUp extends React.Component {
             <div className="modal-content">
                 <div className="modal-header text-center">
                     <h4 className="modal-title w-100 font-weight-bold" id="loginTitle">
-                        Login Form
+                        Sign up Form
                     </h4>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" className="close" id= "signUpClose"data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -33,27 +58,27 @@ class SignUp extends React.Component {
                     <div className="md-form mb-5">
                         <label data-error="wrong" data-success="right" htmlFor="">Your
                             username:</label>
-                        <input type="text" id="username" className="form-control validate"/>
+                        <input type="text" id="username"  value={this.state.username} onChange={this.onChange} className="form-control validate"/>
 
                     </div>
                     <div className="md-form mb-4">
                         <label data-error="wrong" data-success="right" htmlFor="defaultForm-pass">Your
                             password:</label>
-                        <input type="password" id="password" className="form-control validate"/>
+                        <input type="password" id="password" value={this.state.password} onChange={this.onChange} className="form-control validate"/>
 
                     </div>
 
                     <div className="md-form mb-5">
                         <label data-error="wrong" data-success="right" htmlFor="">Your
                             email:</label>
-                        <input type="email" id="userEmail" className="form-control validate"/>
+                        <input type="email" id="email" value={this.state.email} onChange={this.onChange} className="form-control validate"/>
 
                     </div>
 
 
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                    <button className="btn btn-primary" onClick={this.handleClick}>Sign Up</button>
+                    <button className="close" data-dismiss="modal" aria-label="Close" onClick={this.handleClick}>Sign Up</button>
                 </div>
             </div>
         </div>
@@ -61,6 +86,23 @@ class SignUp extends React.Component {
     }
 
 }
+function mapStateToProps(state){
+    return{
+        notification: state.notification
+    }
+}
+function mapDispatchToProps(dispatch)
+{
+    return {
+        addNotification: (message)=> {
+            dispatch({type: 'ADDED', payload:message})
+        },
+        removeNotification: ()=>{
+            dispatch({type: 'REMOVED'})
+        }
+
+    }
+}
 
 
-export default SignUp
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

@@ -9,20 +9,24 @@ import SignUp from "./signup"
 
 
 
+
 class Header extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            showCart: false
-        }
-        this.handleCart = this.handleCart.bind(this)
     }
 
-    handleCart(e) {
-        e.preventDefault();
-    }
 
     render() {
+        const {cart, loggedIn} = this.props
+        const Log = ()=>(
+            {loggedIn}=="Succeed"?
+             <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal" >LogOut</NavLink>
+        :
+                <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal" >Login</NavLink>
+
+
+        )
+
         return <React.Fragment>
             <div>
             <nav className="navbar navbar-expand-sm navbar-light bg-light ">
@@ -47,9 +51,12 @@ class Header extends React.Component {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#signUpModal">SignUp </NavLink>
                             </li>
+
                             <li className="nav-item">
-                                <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal">Login</NavLink>
+
+                                 < Log/>
                             </li>
+
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/#' data-toggle="modal"
                                          data-target="#cartModal">Cart <span
@@ -70,7 +77,9 @@ class Header extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart
+        cart: state.cart,
+        loggedIn: state.loggedIn
+
     }
 }
 

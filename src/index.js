@@ -6,8 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import "./css/cart.css";
-import "./css/cart"
+
 
 
 
@@ -15,6 +14,8 @@ import "./css/cart"
 import App from './App';
 import store from './config/store'
 import './css/homePage.css'
+import "./css/cart.css";
+import "./css/cart"
 
 
 const app =<Provider store = {store}>

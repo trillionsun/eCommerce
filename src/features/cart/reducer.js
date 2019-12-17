@@ -27,10 +27,8 @@ const cartReducer = (state = [], action)=>{
     switch(action.type){
         case 'ADDED':
             return addToCart(state, action.payload);
-
         case 'REMOVED':
             return removeFromCart(state, action.payload);
-
         case 'SETTED':
             return setCartItem(state, action.payload);
         case 'REMOVEALL':
