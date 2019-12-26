@@ -1,16 +1,43 @@
-import fetchApi from '../../modules/fetch-api'
+
+import {APIs} from '../../modules/fetch-api'
 import {userConstants} from '../user/userConstants'
+import {productConstants} from "../../features/productList/productConstants";
 
 
 export const userService ={
     login,
     logout,
-    signup
+    signup,
+    productLoad
+}
+
+function productLoad(){
+return (dispatch)=>{
+    dispatch({type: productConstants.PRODUCT_LOAD_REQUEST})
+    APIs.getApi("GET", productConstants.PRODUCT_URL)
+        .then(handleResponse)
+        .then(
+            response=>{
+                console.log(response)
+                dispatch({type: productConstants.PRODUCT_LOADED, payload:response})
+            },
+            error=>{
+                console.log(error)
+                dispatch({type:productConstants.PRODUCT_LOAD_FAILURE})
+            }
+        )
+
+}
+
+
+
 }
 
 function handleResponse (response)
 {
+
     return response.text().then(text=>{
+
         const data = text && JSON.parse(text);
         if(response.ok)
         {
@@ -19,6 +46,7 @@ function handleResponse (response)
         else
         {
             const error = (data && data.message) || response.statusText;
+            console.log("response: asdadad"+response)
             return Promise.reject(error);
         }
 
@@ -31,7 +59,7 @@ function signup(user) {
     return dispatch => {
         dispatch({type: userConstants.SIGNUP_REQUEST});
 
-        fetchApi("POST", userConstants.SIGNUP_URL, user)
+        APIs.fetchApi("POST", userConstants.SIGNUP_URL, user)
             .then(handleResponse)
             .then(
                 response => {
@@ -49,7 +77,7 @@ function login(user) {
     return dispatch => {
         dispatch({type: userConstants.LOGIN_REQUEST, payload: user});
 
-        fetchApi("POST", userConstants.LOGIN_URL, user)
+        APIs.fetchApi("POST", userConstants.LOGIN_URL, user)
             .then(handleResponse)
             .then(response => {
                 console.log(response)
@@ -65,5 +93,11 @@ function login(user) {
 }
 
 function logout(){
-    localStorage.removeItem('user');
+     return dispatch=>
+     {
+
+         dispatch({type: userConstants.LOGOUT});
+         localStorage.removeItem('user');
+     }
+
 }

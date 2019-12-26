@@ -33,7 +33,6 @@ const cartReducer = (state = [], action)=>{
             return setCartItem(state, action.payload);
         case 'REMOVEALL':
             return removeAllFromCart();
-
         default:
             return state;
     }

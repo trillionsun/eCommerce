@@ -1,7 +1,9 @@
 import Cart from "./cart";
 import React from "react";
+import {NavLink} from 'react-router-dom';
 
 import {connect} from "react-redux";
+
 
 class Floatcart extends React.Component {
     render() { return <div>
@@ -25,7 +27,6 @@ class Floatcart extends React.Component {
                             />
                             <div className="modal-footer border-top-0 d-flex justify-content-between">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-success">Checkout</button>
                             </div>
                         </div>
                     </div>

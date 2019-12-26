@@ -20,7 +20,7 @@ export function signInReducer(state = initialState, action){
                 user: action.payload
             };
         case userConstants.LOGOUT:
-            return {};
+            return {loggedIn: "Failed"};
         default:
             return state
     }

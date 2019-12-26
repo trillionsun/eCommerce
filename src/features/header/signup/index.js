@@ -35,7 +35,6 @@ class SignUp extends React.Component {
             email: this.state.email
         }
        store.dispatch( userService.signup(newUser));
-
     }
 
 

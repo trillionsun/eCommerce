@@ -1,32 +1,50 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom';
 import {connect} from "react-redux";
+import {Fragment} from "react"
+
 
 
 import Floatcart from './floatCart/floatCart'
 import Login from "./login";
 import SignUp from "./signup"
-
-
+import {userService} from "../../auth/user/userServices";
+import store from "../../config/store";
 
 
 class Header extends React.Component {
     constructor(props) {
         super(props)
+        this.handleSignOut = this.handleSignOut.bind(this);
     }
-
+     handleSignOut(e){
+        e.preventDefault();
+         store.dispatch(userService.logout());
+    }
 
     render() {
         const {cart, loggedIn} = this.props
-        const Log = ()=>(
-            {loggedIn}=="Succeed"?
-             <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal" >LogOut</NavLink>
-        :
-                <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal" >Login</NavLink>
-
-
+        const Log = ()=>
+            (loggedIn.loggedIn.toString())== "Succeed"  ?
+                (
+                    <Fragment>
+                        <li className="nav-item">
+                <NavLink className="nav-link"  to='#' onClick={this.handleSignOut} >LogOut</NavLink>
+                        </li>
+                <li className="nav-item">
+                <NavLink className="nav-link" to='/checkout' >CheckOut</NavLink>
+                </li>
+                    </Fragment>)
+                : (
+                <Fragment>
+                    <li className="nav-item">
+                    <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#loginModal" >Login</NavLink>
+                    </li>
+                    <li  className="nav-item">
+                        <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#signUpModal">SignUp </NavLink>
+                    </li>
+                </Fragment>
         )
-
         return <React.Fragment>
             <div>
             <nav className="navbar navbar-expand-sm navbar-light bg-light ">
@@ -48,19 +66,11 @@ class Header extends React.Component {
                                 <NavLink className="nav-link" to='/about'>About </NavLink>
 
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to='#' data-toggle="modal" data-target="#signUpModal">SignUp </NavLink>
-                            </li>
-
-                            <li className="nav-item">
-
-                                 < Log/>
-                            </li>
-
+                                < Log/>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/#' data-toggle="modal"
                                          data-target="#cartModal">Cart <span
-                                    class="badge badge-light position-relative"> {this.props.cart.length} </span></NavLink>
+                                    className="badge badge-light position-relative"> {this.props.cart.length} </span></NavLink>
                             </li>
                         </ul>
                     </div>

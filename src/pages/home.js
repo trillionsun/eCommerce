@@ -10,7 +10,7 @@ function HomePage()
 return <div>
         <Header/>
         <Canvas/>
-        <ProductList products={data.products}/>
+        <ProductList/>
         <Footer/>
     </div>
         }
