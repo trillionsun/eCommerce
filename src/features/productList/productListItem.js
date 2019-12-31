@@ -32,7 +32,7 @@ class ProductListItem extends React.Component
     handleQuantityChange(event)
     {
         this.setState({
-            quantity: event.target.value
+            quantity: Math.min(event.target.value, this.props.product.quantity)
         })
     }
 
@@ -58,9 +58,9 @@ class ProductListItem extends React.Component
                             </label>
                         </div>
                         <div class="input-group">
-                            <label>Quantity </label><br />
+                            <label>now {product.quantity} (in stock)</label><br />
                             <label class="input-group" >
-                            <input type="number" min="0" name="Quantity" class="col-xl-6 col-lg-5 col-md-5 col-sm-2 col-2" value={this.state.quantity} onChange={this.handleQuantityChange} />
+                            <input type="number" min="0" max={product.quantity} name="Quantity"  classname="col-xl-6 col-lg-5 col-md-5 col-sm-2 col-2" value={this.state.quantity} onChange={this.handleQuantityChange} />
                             </label>
                             </div>
 

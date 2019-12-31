@@ -1,12 +1,22 @@
 import Cart from "./cart";
 import React from "react";
-import {NavLink} from 'react-router-dom';
-
 import {connect} from "react-redux";
+import {withRouter } from 'react-router-dom'
 
 
 class Floatcart extends React.Component {
-    render() { return <div>
+    constructor(props){
+        super(props)
+        this.handleCheckout = this.handleCheckout.bind(this);
+    }
+handleCheckout(e){
+        e.preventDefault();
+        this.props.history.push("/checkout");
+
+
+    }
+    render() {
+        return <div>
             <div className="modal fade" id="cartModal" tabIndex="-1" role="dialog" aria-labelledby="floatCartModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -27,18 +37,23 @@ class Floatcart extends React.Component {
                             />
                             <div className="modal-footer border-top-0 d-flex justify-content-between">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.handleCheckout}>CheckOut</button>
                             </div>
+                            <div className="d-flex justify-content-center">
+                                <h5>Total: <span
+                                    className="price text-success">{this.props.cart.reduce((total, item) => {
+                                    return total + item.quantity * item.price
+                                }, 0)}</span></h5>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
-                <div className="d-flex justify-content-end">
-                    <h5>Total: <span className="price text-success">{this.props.cart.reduce((total, item) => {
-                        return total + item.quantity * item.price
-                    }, 0)}</span></h5>
-                </div>
-            </div>
 
-      </div>
+            </div>
+        </div>
+
     }
 
 }
@@ -61,4 +76,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Floatcart)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Floatcart))

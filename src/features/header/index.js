@@ -64,7 +64,6 @@ class Header extends React.Component {
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/about'>About </NavLink>
-
                             </li>
                                 < Log/>
                             <li className="nav-item">
